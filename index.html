@@ -1,10 +1,53 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Vue + TS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <!-- Empêche l'affichage des barres d'outils sur mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#7c3aed" />
+    <title>VVS Store - Marketplace Premium Lubumbashi</title>
+    <style>
+      /* Supprime les barres de navigation sur mobile */
+      html, body {
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height */
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      /* Cache les barres d'adresse sur mobile */
+      @media screen and (max-width: 768px) {
+        html {
+          height: -webkit-fill-available;
+        }
+        body {
+          min-height: 100vh;
+          min-height: -webkit-fill-available;
+        }
+      }
+      
+      /* Supprime les espaces blancs */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      #app {
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>

@@ -584,12 +584,7 @@
       </div>
     </div>
 
-    <!-- Footer Advertisement Section -->
-    <div class="bg-gray-100 py-8">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AdManager placement="footer" :max-ads="3" />
-      </div>
-    </div>
+
   </div>
 </template>
 
@@ -603,6 +598,7 @@ import { useAdvertisementsStore } from '@/store/advertisements'
 import type { Product } from '@/types'
 import AdManager from '@/components/Advertisement/AdManager.vue'
 import AdNative from '@/components/Advertisement/AdNative.vue'
+import AppFooter from '@/components/AppFooter.vue'
 
 const productsStore = useProductsStore()
 const cartStore = useCartStore()

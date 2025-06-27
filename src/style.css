@@ -12,6 +12,52 @@
 html, body {
   overflow-x: hidden;
   max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
+}
+
+/* Supprime les barres d'adresse sur mobile et élimine les espaces blancs */
+@media screen and (max-width: 768px) {
+  html {
+    height: -webkit-fill-available;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+  
+  /* Force la barre d'adresse à se cacher */
+  .hide-address-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Assure que l'app prend toute la hauteur sans espaces */
+#app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 /* Ensure all containers don't overflow */

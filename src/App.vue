@@ -24,7 +24,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="app" class="min-h-screen bg-gray-50">
+  <div id="app" class="min-h-screen min-h-dvh bg-gray-50 flex flex-col">
     <!-- Navigation with integrated ads -->
     <AlibabaNavigation />
     

@@ -1,22 +1,11 @@
 # Netlify redirects file for Vue.js SPA
 # This ensures that all routes are handled by Vue Router
 
-# Handle all routes by redirecting to index.html
+# API routes (if you have backend endpoints)
+/api/*  /api/:splat  200
+
+# Handle all other routes by redirecting to index.html
 /*    /index.html   200
-
-# Optional: Handle API routes differently if you have backend endpoints
-# /api/*  https://your-api-domain.com/api/:splat  200
-
-# Security headers
-/*
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
-  Referrer-Policy: strict-origin-when-cross-origin
-
-# Cache static assets
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
 
 /js/*
   Cache-Control: public, max-age=31536000, immutable
@@ -24,6 +13,12 @@
 /css/*
   Cache-Control: public, max-age=31536000, immutable
 
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Don't cache HTML files
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate

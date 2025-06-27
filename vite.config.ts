@@ -24,15 +24,32 @@ export default defineConfig({
       }
     },
     // Generate source maps for better debugging
-    sourcemap: true,
+    sourcemap: false, // Disable in production for smaller builds
     // Optimize chunk size
-    chunkSizeWarningLimit: 1000
+    chunkSizeWarningLimit: 1000,
+    // Ensure assets are properly handled
+    assetsDir: 'assets',
+    // Generate manifest for better caching
+    manifest: false,
+    // Minify for production
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
   },
-  // Ensure proper base for deployment
-  base: './',
+  // Use absolute base for better SPA routing
+  base: '/',
   // Preview server configuration for local testing
   preview: {
     port: 4173,
-    strictPort: true
+    strictPort: true,
+    host: true
+  },
+  // Define global constants
+  define: {
+    __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false,
   }
 })
