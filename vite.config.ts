@@ -13,4 +13,26 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
+  build: {
+    // Optimize build for SPA deployment
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['vue', 'vue-router', 'pinia'],
+          ui: ['@headlessui/vue', '@heroicons/vue']
+        }
+      }
+    },
+    // Generate source maps for better debugging
+    sourcemap: true,
+    // Optimize chunk size
+    chunkSizeWarningLimit: 1000
+  },
+  // Ensure proper base for deployment
+  base: './',
+  // Preview server configuration for local testing
+  preview: {
+    port: 4173,
+    strictPort: true
+  }
 })

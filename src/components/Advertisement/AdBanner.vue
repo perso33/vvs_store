@@ -116,7 +116,7 @@ const props = withDefaults(defineProps<Props>(), {
   compact: false
 })
 
-const emit = defineEmits<{
+defineEmits<{
   close: []
 }>()
 

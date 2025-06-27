@@ -1,8 +1,5 @@
 <template>
   <nav class="bg-white shadow-xl border-b border-purple-100 sticky top-0 z-50">
-    <!-- Header Advertisement -->
-    <AdManager placement="header" :max-ads="1" />
-    
     <!-- Premium Top Bar - Hidden on mobile -->
     <div class="hidden sm:block bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-900 text-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -522,8 +519,8 @@
                 <div class="flex items-center space-x-4">
                   <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-lg flex-shrink-0"></div>
                   <div class="flex-1 min-w-0">
-                    <h3 class="text-sm font-semibold text-gray-900 truncate">{{ item.name }}</h3>
-                    <p class="text-sm text-gray-500">{{ localeStore.formatPrice(item.price) }}</p>
+                    <h3 class="text-sm font-semibold text-gray-900 truncate">{{ item.product.name }}</h3>
+                    <p class="text-sm text-gray-500">{{ localeStore.formatPrice(item.product.promotionalPrice || item.product.price) }}</p>
                     <div class="flex items-center space-x-2 mt-2">
                       <button
                         @click="cartStore.updateQuantity(item.id, item.quantity - 1)"
@@ -582,14 +579,11 @@ import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/store/auth'
 import { useCartStore } from '@/store/cart'
 import { useLocaleStore } from '@/store/locale'
-import { useAdvertisementsStore } from '@/store/advertisements'
-import AdManager from '@/components/Advertisement/AdManager.vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
 const cartStore = useCartStore()
 const localeStore = useLocaleStore()
-const adsStore = useAdvertisementsStore()
 
 const mobileMenuOpen = ref(false)
 const userMenuOpen = ref(false)

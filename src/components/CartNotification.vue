@@ -90,7 +90,7 @@ const localeStore = useLocaleStore()
 
 const showNotification = ref(false)
 const lastAddedItem = ref<CartItem | null>(null)
-let timeoutId: number | null = null
+let timeoutId: ReturnType<typeof setTimeout> | undefined = undefined
 
 // Watch for new items added to cart
 watch(() => cartStore.items.length, (newLength, oldLength) => {
@@ -111,7 +111,7 @@ const hideNotification = () => {
   showNotification.value = false
   if (timeoutId) {
     clearTimeout(timeoutId)
-    timeoutId = null
+    timeoutId = undefined
   }
 }
 </script>
